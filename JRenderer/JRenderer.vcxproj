@@ -94,6 +94,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d11.lib;d3dcompiler.lib;d3dx11d.lib;d3dx9d.lib;dxerr.lib;dxguid.lib;winmm.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -147,17 +148,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\JPhysics\JPhysics\JPhysics.vcxproj">
-      <Project>{70c86e4a-6efe-4927-b40f-f6ab0ec5b183}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+    <ClCompile Include="BaseModel.cpp" />
     <ClCompile Include="Device.cpp" />
+    <ClCompile Include="BaseScene.cpp" />
+    <ClCompile Include="JMath.cpp" />
     <ClCompile Include="testbed.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Device.h" />
+    <ClInclude Include="BaseModel.h" />
+    <ClInclude Include="BaseScene.h" />
+    <ClInclude Include="JMath.h" />
+    <ClInclude Include="ModelLoader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

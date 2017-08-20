@@ -3,6 +3,7 @@
 #include <tchar.h>
 
 #include "Interface.h"
+#include "BaseScene.h"
 
 const TCHAR* WINDOW_NAME = _T("jj");
 const TCHAR* WINDOW_CAPTION = _T("JRenderer - by jj");
@@ -75,7 +76,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR lpCmdLine, int nCmdLine) {
 		return E_FAIL;
 	}
 
-	if (SUCCEEDED(JRenderer::Initialise(g_hwnd)))
+	if (SUCCEEDED(JRenderer::Initialize(g_hwnd)))
 	{
 		// Ö÷Ñ­»·
 		MSG msg;
@@ -89,10 +90,12 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR lpCmdLine, int nCmdLine) {
 				DispatchMessage(&msg);
 			}
 			else {
+				JRenderer::Render();
 			}
 		}
 	}
-
+	
+	JRenderer::CleanupDevice();
 	UnregisterClass(WINDOW_NAME, myWnd.hInstance);
 
 	return S_OK;
