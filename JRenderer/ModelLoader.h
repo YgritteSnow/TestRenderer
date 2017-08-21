@@ -1,5 +1,6 @@
 #pragma once
 #include <sstream>
+#include "BaseModel.h"
 
 namespace JRenderer
 {
@@ -11,7 +12,7 @@ namespace JRenderer
 			Sphere,
 		};
 	public:
-		static bool Load(std::stringstream& ss)
+		static bool Load(std::stringstream& ss, VertexBuffer& vb, IndexBuffer& ib)
 		{
 			int type;
 			ss >> type;
@@ -22,9 +23,9 @@ namespace JRenderer
 	class ModelLoader
 	{
 	public:
-		static bool Load(std::stringstream& ss)
+		static bool Load(std::stringstream& ss, VertexBuffer& vb, IndexBuffer& ib)
 		{
-			return ModelLoader_handmade::Load(ss);
+			return ModelLoader_handmade::Load(ss, vb, ib);
 		}
 	};
 }
